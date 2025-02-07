@@ -1,0 +1,17 @@
+#include <stdio.h>
+void findHighestSales(int sales[], int size) {
+    int maxSales = sales[0]; 
+    int maxDay = 0; 
+    for (int i = 1; i < size; i++) {
+        if (sales[i] > maxSales) {
+            maxSales = sales[i];
+            maxDay = i; 
+        }
+    }
+    printf("The highest sales occurred on day %d with %d sales.\n", maxDay + 1, maxSales);}
+int main() {
+    int sales[] = {120, 450, 300, 500, 700, 650, 720}; 
+    int size = sizeof(sales) / sizeof(sales[0]);
+    findHighestSales(sales, size);
+    return 0;
+}
