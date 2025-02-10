@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdbool.h>
+void findDistinctDigits(int numbers[], int k) {
+    bool digits[10] = {false};
+    for (int i = 0; i < k; i++) {
+        int num = numbers[i];
+        while (num > 0) {
+            digits[num % 10] = true;
+            num /= 10;
+        }
+    }
+    printf("Distinct Digits: [");
+    bool first = true;
+    for (int i = 0; i < 10; i++) {
+        if (digits[i]) {
+            if (!first) {
+                printf(", ");
+            }
+            printf("%d", i);
+            first = false;
+        }
+    }
+    printf("]\n");
+}
+int main() {
+    int N[] = {111, 222, 333, 4444, 666};
+    int k = sizeof(N) / sizeof(N[0]);
+    findDistinctDigits(N, k);
+    return 0;
+}
