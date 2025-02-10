@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <string.h>
+void replaceText(char *text) {
+    char *pos;
+    char temp[500];
+    while ((pos = strstr(text, "hte")) != NULL) {
+        strcpy(temp, pos + 3);
+        strcpy(pos, "the");
+        strcat(pos, temp);    }
+    while ((pos = strstr(text, "recieve")) != NULL) {
+        strcpy(temp, pos + 7);
+        strcpy(pos, "receive");
+        strcat(pos, temp);    }	
+}
+int main() {
+    char text[500];
+    printf("Enter a text: ");
+    fgets(text, sizeof(text), stdin);
+    replaceText(text);
+    printf("Corrected text: %s\n", text);
+    return 0;
+}
